@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
  
@@ -32,7 +34,7 @@ if (isset ($_SESSION["uname"]))
     if (isset($_GET["logout"])){
         session_unset();
         session_destroy();
-        header("location: http://localhost/prog2php/");
+        header("location: http://localhost/prog2php/treti%20hodina/");
     }
 }
 else
