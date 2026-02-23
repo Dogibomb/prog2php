@@ -1,26 +1,14 @@
 <?php
-$_SERVER = "localhost/"
-$user = "localhost"
-$pasw = "heslo"
-$db = "mojedatabaze"
-
-// Create connection
-$conn = new mysqli($_SERVER, $user, $pasw, $db);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+$Dsn = "mysql:host=localhost;dbname=fucik;charset=utf8";
+$Username = "admin";
+$Password = "admin";
+ 
+try {
+  $db = new PDO($Dsn, $Username, $Password);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
 }
-
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
-
-
 ?>
+ 
