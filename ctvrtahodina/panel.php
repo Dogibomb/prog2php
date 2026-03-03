@@ -2,7 +2,6 @@
 session_start();
 include "users.php";
 
-// Pokud není přihlášen, přesměruj na login
 if(!isset($_SESSION['uname'])){
     header("Location: login/index.html");
     exit();
@@ -24,7 +23,7 @@ $isAdmin = $_SESSION['uname'] === 'admin';
     <a href="panel.php">Panel</a>
     <a href="profile.php">Profile</a>
     <form action="logout.php" method="post" style="margin-left:auto;">
-        <button class="logout" type="submit">Odhlásit se (<?= htmlspecialchars($_SESSION['uname']) ?>)</button>
+        <button class="logout" type="submit">Odhlásit se <?= htmlspecialchars($_SESSION['uname']) ?></button>
     </form>
 </nav>
 

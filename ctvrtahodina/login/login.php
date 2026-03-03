@@ -7,7 +7,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $psw  = trim($_POST['psw'] ?? '');
 
     if(empty($name) || empty($psw)){
-        header("Location: index.html?error=1");
+        header("Location: index.html");
+        echo "zadejte jmeno nebo heslo";
         exit();
     }
 
@@ -15,13 +16,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $stmt->execute(['name' => $name, 'password' => $psw]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if($user){
+    if ($user) {
         $_SESSION['uname'] = $user['name'];
         $_SESSION['user_id'] = $user['id'];
         header("Location: ../panel.php");
         exit();
     } else {
-        header("Location: index.html?error=1");
+        header("Location: ../login/index.html?error=1");
         exit();
     }
 }

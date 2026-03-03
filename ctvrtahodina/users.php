@@ -72,13 +72,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     );
 
     if($result['success']){
-        header("Location: register/index.php?success=1");
+        header("Location: ../register/index.php?success=1");
+        
         exit();
     } else {
         session_start();
         $_SESSION['errors'] = $result['errors'];
-        header("Location: register/index.php?error=1");
+        echo "ahoj jak se mas";
+        header("Location: ../register/index.php?error=1");
+        
         exit();
+
     }
 }
 ?>
