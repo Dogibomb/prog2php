@@ -1,0 +1,184 @@
+body {
+    margin: 20px;
+}
+
+h1 {
+    color: #333333;
+    font-size: 18px;
+}
+
+.box {
+    background: white;
+    width: 300px;
+    padding: 20px;
+}
+
+label {
+    font-size: 13px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    color: #444444;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #aaaaaa;
+    font-size: 13px;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    border: 1px solid #555;
+    outline: none;
+}
+
+button {
+    background-color: #4a90d9;
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    margin-top: 14px;
+    font-size: 13px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #357abd;
+}
+
+button.save {
+    background-color: #000000;
+    width: auto;
+}
+
+button.del {
+    background-color: white;
+    color: #cc0000;
+    width: auto;
+}
+
+button.del:hover {
+    background-color: #fff0f0;
+}
+
+.msg {
+    background: #ffe0e0;
+    color: #cc0000;
+    padding: 6px 10px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.ok {
+    background: #e0ffe0;
+    color: #000000;
+    padding: 6px 10px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.link {
+    font-size: 12px;
+    margin-top: 12px;
+    text-align: center;
+    color: #666;
+}
+
+.link a {
+    color: #4a90d9;
+}
+
+.link a:hover {
+    color: #cc0000;
+}
+
+.top {
+    background: white;
+    padding: 8px 12px;
+    border-bottom: 2px solid #aaa;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.top h1 {
+    font-size: 14px;
+    flex: 1;
+    color: #333;
+    margin: 0;
+}
+
+.user {
+    font-size: 12px;
+    color: #666;
+}
+
+a.logout {
+    font-size: 12px;
+    color: #cc0000;
+    text-decoration: none;
+    border: 1px solid #cc0000;
+    padding: 3px 7px;
+}
+
+a.logout:hover {
+    background: #fff0f0;
+}
+
+.upload-zone {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-box {
+    text-align: center;
+}
+
+.upload-box label {
+    display: inline-block;
+    background: #000000;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 13px;
+    border: none;
+    margin-top: 0px;
+}
+
+.editor {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.bar {
+    padding: 6px 10px;
+    background: white;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.bar span {
+    flex: 1;
+    font-size: 13px;
+    color: #555;
+}
+
+textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 13px;
+    line-height: 1.7;
+    padding: 14px 16px;
+    background: #f5f5f5;
+    color: #222;
+}
