@@ -1,0 +1,56 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<script>
+function loadMessages(folder) {
+    if(folder === "") return;
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            document.getElementById('chatBox').innerHTML = this.responseText;
+            document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight;
+        }
+    };
+    xmlhttp.open("GET", "getmessages.php?folder=" + encodeURIComponent(folder), true);
+    xmlhttp.send();
+}
+
+function sendMessage() {
+    var folder = document.getElementById('folder').value;
+    var name = document.getElementById('name').value;
+    var message = document.getElementById('message').value;
+
+    if(folder === "" || name === "" || message === "") {
+        alert("Fill all fields!");
+        return;
+    }
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            document.getElementById('message').value = "";
+            loadMessages(folder);
+        }
+    };
+    xmlhttp.open("POST", "sendmessage.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("folder=" + encodeURIComponent(folder) + "&name=" + encodeURIComponent(name) + "&message=" + encodeURIComponent(message));
+}
+</script>
+</head>
+<body>
+
+<div class="container">
+    <input type="text" id="folder" placeholder="Folder / Chat Room Name" onkeyup="loadMessages(this.value)">
+    <div id="chatBox"></div>
+
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="text" id="message" placeholder="Your Message">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<a href="messages.php">jdi na messages¨co se posilaj </a>
+
+</body>
+</html>
